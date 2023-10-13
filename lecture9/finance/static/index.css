@@ -1,0 +1,33 @@
+main {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+table {
+    max-width: 100vw !important;
+}
+
+.shares-input {
+    max-width: 10ch;
+}
+
+.shares-td {
+    max-width: 100px !important;
+    background-color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+}
+
+@media (max-width: 780px) {
+    .shares-td {
+        display: none;
+    }    
+}

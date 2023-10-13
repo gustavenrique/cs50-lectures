@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block link %}
+    <link rel="stylesheet" href="/static/index.css">
+{% endblock %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        {% for company in companys %} 
+            {% if company.currentShares>0 %}
+            <tr>
+                <td>{{ company.symbol }}</td>
+                <td>{{ company.name }}</td>
+                <td>{{ company.currentShares }}</td>
+                <td>{{ usd(lookup(company.symbol).price) }}</td>
+                <td>{{ usd(company.currentShares * lookup(company.symbol).price) }}</td>
+                <td class='shares-td'>
+                    <form action="/buy" method='post'>
+                        <input name="symbol" value='{{company.symbol}}' type="hidden">
+                        <input autocomplete="off" class=" shares-input form-control" min="1" name="shares" placeholder="Shares" type="number">
+                        
+                        <button class="btn btn-primary" type="submit">Buy</button>
+                    </form>
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+            <tr>
+                <td><b>CASH</b></td>
+                <td colspan='3'></td>
+                <td>{{ usd(cash) }}</td>
+            </tr>
+        </tbody>
+        
+        
+        <tfoot>
+            <tr>
+                <td colspan='4'></td>
+                <td>{{ usd(total) }}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

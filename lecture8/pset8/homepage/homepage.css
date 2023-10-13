@@ -1,0 +1,62 @@
+section {
+    margin: 20px;
+    text-align: justify;
+    justify-content: center;
+}
+
+#hiquepuff-img {
+    max-width: 70vw;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+h5 {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+hr {opacity: 0.4;}
+
+.topics {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 10px;
+    border-left: 6px solid #1f435b; 
+}
+
+.topics li {
+    padding: .3rem;
+}
+
+@media (min-width: 600px) {
+    #hiquepuff-img {
+        max-width: 40vw;
+        float: left;
+        display: block;
+        margin: 20px 20px 20px 0;
+    }
+}
+
+@media (min-width: 900px) {
+    section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        max-height: 80vh;
+    }
+    
+    .img-div {
+        float: left;
+        width: 50%;
+        display: block;
+    }
+    
+    .text-div {
+         width: 50%;
+         float: right;
+         padding: 20px;
+    }
+}

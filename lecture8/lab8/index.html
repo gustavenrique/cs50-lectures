@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+            // Wait until all the content be loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                 // If correct answer be clicked...
+                let correct = document.body.querySelector('.correct');
+                correct.addEventListener('click', function() {
+                    
+                    correct.style.backgroundColor = '#2ed182';
+                    document.querySelector('#feedback1').innerHTML = 'Correct!'
+                    
+                })
+                 // If any incorrect be clicked
+                let incorrects = document.body.querySelectorAll('.incorrect')
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener('click', function() {
+                        
+                        incorrects[i].style.backgroundColor = '#f30c4f'
+                        document.querySelector('#feedback1').innerHTML = 'Incorrect.'
+                        
+                    })
+                }
+                
+                // If the check button be clicked...
+                document.querySelector('#check').addEventListener('click', function() {
+                    
+                    // Then check the answer
+                    
+                    let input = document.querySelector('input')
+                    if (input.value == 3 || input.value.toLowerCase() === 'three') {
+                        input.style.backgroundColor = '#2ed182'
+                        document.querySelector('#feedback2').innerHTML = 'Correct!'
+                    } else {
+                        document.querySelector('#feedback2').innerHTML = 'Incorrect.'
+                        input.style.backgroundColor = '#f30c4f'
+                    }
+                    
+                })
+                
+            })
+            
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the hottest planet in the solar system?</h3>
+                <button class='incorrect'>Mercury</button>
+                <button class='correct'>Venus</button>
+                <button class='incorrect'>Earth</button>
+                <button class='incorrect'>Mars</button>
+                <button class='incorrect'>Neptune</button>
+                
+                <p id='feedback1'></p>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>How many hearts does an octopus have?</h3>
+                <input type='text'>
+                <button id='check'>Check Answer</button>
+                
+                <p id='feedback2'></p>
+            </div>
+
+        </div>
+    </body>
+</html>

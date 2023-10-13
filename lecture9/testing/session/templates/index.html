@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    <title>Homepage</title>
+{% endblock %}
+
+{% block body %}
+    
+    <p style='font-weight: bold; font-size: 2rem;'>You're logged in as {{ session.username }}. <a href="/logout">Log Out</a>.</p>
+    
+{% endblock %}

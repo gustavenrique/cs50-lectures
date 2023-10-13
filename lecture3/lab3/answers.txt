@@ -1,0 +1,11 @@
+sort1 uses: BUBBLE SORT
+
+How do you know?: It took too long with the 50K random list, but it performed really well (it was the best) with the sorted one.
+
+sort2 uses: MERGE SORT
+
+How do you know?: It went really fast with both of the sorted and the random lists, practically the same thing.
+
+sort3 uses: SELECTION SORT
+
+How do you know?: That's the remainder AND It went relatively fast with both types of lists, practically the same as well, but not as fast as the sort2.

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block main %}
+    <form action="/settings" method="post">
+        <div class="form-group">
+            <input class="form-control" name="current-pass" placeholder="Current pass" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="new-pass" placeholder="New pass" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Confirm new pass" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Change</button>
+    </form>
+{% endblock %}

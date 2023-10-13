@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <style>
+        .image {
+            max-width: 30rem;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>image preview</h1>
+    
+    <input type="file" class='inpFile'>
+    
+    <div class="container">
+        <img src="" alt="Image Preview" class='image'>
+    </div>
+    
+    <script>
+        const inpFile = document.querySelector('.inpFile')
+        const image = document.querySelector('.image')
+        
+        inpFile.addEventListener('change', function() {
+            const file = this.files[0]
+            
+            if (file) {
+                const reader = new FileReader()
+                
+                reader.addEventListener('load', function() {
+                    console.log(this)
+                    image.setAttribute('src', this.result)
+                })
+                
+                reader.readAsDataURL(file)
+            }
+        })
+    </script>
+</body>
+</html>

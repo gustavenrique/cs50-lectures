@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block link %} <link rel="stylesheet" href="/static/sell.css"> {% endblock %}
+
+{% block title %} Sell {% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="mb-3">
+            <select class="form-select" name="symbol">
+                <option selected disabled>Symbol</option>
+                
+                {% for company in companys %}
+                    {% if company.currentShares > 0 %}
+                    <option value="{{company.symbol}}">{{company.symbol}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" min="1" name="shares" placeholder="Shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}
